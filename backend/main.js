@@ -5,8 +5,9 @@ mimes['js'] = 'text/javascript' // fix for deprecated application/javascript
 const log = console.log
 
 const server = Deno.serve({port: 8080, hostname: '0.0.0.0'}, requestHandler)
-const wwwDir = '../frontend'
+const wwwDir = './frontend'
 
+// https://deno.com/blog/deploy-static-files
 async function requestHandler(request) {
   const url = new URL(request.url)
   log('request: ', ''+url, url.pathname)
